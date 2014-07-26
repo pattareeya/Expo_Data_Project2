@@ -6,9 +6,10 @@ library(reshape2)
 
 #5.How have emissions from motor vehicle sources changed 
 #from 1999-2008 in Baltimore City? 
-#Baltimore City has fips = "24510"
+
+#Select only rows related to Baltimore City where fips = "24510"
 Bal_NEI <- NEI[grep("24510",NEI$fips),]
-#Find motor vehicle sources from SCC$EI.Sector using key word "Mobile"
+#Find motor vehicle sources from SCC$EI.Sector by using keyword "Mobile"
 Ve_SCC <- SCC[grep("^Mobile", SCC$EI.Sector),]
 Ve_SCC2 <- Ve_SCC[,c(1,4)] #shorten the data frame to save run time when merge
 Bal_NEI2 <- merge(Bal_NEI, Ve_SCC2, by.x = "SCC", by.y= "SCC", all = FALSE)

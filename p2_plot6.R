@@ -39,7 +39,7 @@ Final$Location <- factor(Final$Location)
 
 library(ggplot2)
 png("p2_plot6.png", width=480, height=480)
-ggplot(data=Final, aes(x=year, y=Emissions, group=Location, colour=Location, shape=Location))+geom_line()+geom_point()+labs(title = "Total Emissions for different locations")
+ggplot(data=Final, aes(x=year, y=Emissions, group=Location, colour=Location, shape=Location))+geom_line()+geom_point()+labs(title = "Total Emissions for Motor Vehicle")
 dev.off()
 
 #From the graph shows that Los Angeles has a greater change in 
