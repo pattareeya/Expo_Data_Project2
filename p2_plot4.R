@@ -1,19 +1,15 @@
 #Explore Data Course Project No. 2
+
 NEI <- readRDS("summarySCC_PM25.rds")
 SCC <- readRDS("Source_Classification_Code.rds")
 library(reshape2)
 
 #4.Across the United States, how have emissions from 
-#coal combustion-related sources changed from 1999-2008?
+#coal combustion-related sources changed from 1999–2008?
 
 #Search for "coal" in SCC$Short.name  
 coalSCC<-SCC[grep("+([a-zA-z]+) +[Cc]oal", SCC$Short.Name),]
-<<<<<<< HEAD
 coalSCC2 <- coalSCC[,c(1,3)]#shorten the data frame to save run time when merge
-=======
-#select only SSC fips and Short.Name Columns for mapping to NEI
-coalSCC2 <- coalSCC[,c(1,3)]
->>>>>>> origin/master
 
 mergedData = merge(NEI,coalSCC2,by.x="SCC",by.y="SCC",all=FALSE)
 #Find the total Emission for different years
