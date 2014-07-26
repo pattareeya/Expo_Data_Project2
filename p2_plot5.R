@@ -1,19 +1,13 @@
 #Explore Data Course Project No. 2
 
-NEI <- readRDS("summarySCC_PM25.rds")
+NEI <- readRDS("summarySCC_PM25.rds")setwd("C:/Coursera/Data Science/Explore_Data/")
 SCC <- readRDS("Source_Classification_Code.rds")
 library(reshape2)
 
 #5.How have emissions from motor vehicle sources changed 
-#from 1999-2008 in Baltimore City? 
-<<<<<<< HEAD
+#from 1999–2008 in Baltimore City? 
 
 #Select only rows related to Baltimore City where fips = "24510"
-=======
-#Baltimore City has fips = "24510"
-
-#Select only Baltimore City from NEI
->>>>>>> origin/master
 Bal_NEI <- NEI[grep("24510",NEI$fips),]
 #Find motor vehicle sources from SCC$EI.Sector by using keyword "Mobile"
 Ve_SCC <- SCC[grep("^Mobile", SCC$EI.Sector),]
@@ -23,7 +17,6 @@ Bal_NEI2 <- merge(Bal_NEI, Ve_SCC2, by.x = "SCC", by.y= "SCC", all = FALSE)
 #Find the total Emission for different years
 sum_nei5 <- melt(tapply(Bal_NEI2$Emissions, Bal_NEI2$year, sum))
 colnames(sum_nei5) <- c("year","Emissions")
-
 library(ggplot2)
 png("p2_plot5.png", width=480, height=480)
 ggplot(sum_nei5, aes(x=year,y=Emissions)) + geom_line() + labs(title = "Total Emissions from Motor Vehicles in Baltimore City")
