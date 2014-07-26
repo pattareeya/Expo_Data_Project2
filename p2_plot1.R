@@ -1,7 +1,7 @@
 #Explore Data Course Project No. 2
-setwd("C:/Coursera/Data Science/Explore_Data/")
+
 NEI <- readRDS("summarySCC_PM25.rds")
-#SCC <- readRDS("Source_Classification_Code.rds")
+
 
 #1.Have total emissions from PM2.5 decreased in the United States from 
 #1999 to 2008? Using the base plotting system, 

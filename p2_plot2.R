@@ -1,7 +1,6 @@
 #Explore Data Course Project No. 2
-setwd("C:/Coursera/Data Science/Explore_Data/")
+
 NEI <- readRDS("summarySCC_PM25.rds")
-#SCC <- readRDS("Source_Classification_Code.rds")
 
 #2.Have total emissions from PM2.5 decreased in the Baltimore City, 
 #Maryland (fips == "24510") from 1999 to 2008? 
@@ -10,7 +9,7 @@ NEI <- readRDS("summarySCC_PM25.rds")
 #Select any rows where fips = 24510
 data <- NEI[grep("24510",NEI$fips),]
 sum_data <- tapply(data$Emissions, data$year, sum)
-print(sum_data)
+
 #convert matrix sum_data to data frame
 sum_data <- data.frame(sum_data)
 sum_data$year <- rownames(sum_data)

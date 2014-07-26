@@ -1,7 +1,6 @@
 #Explore Data Course Project No. 2
-setwd("C:/Coursera/Data Science/Explore_Data/")
+
 NEI <- readRDS("summarySCC_PM25.rds")
-#SCC <- readRDS("Source_Classification_Code.rds")
 library(reshape2)
 
 #3.Of the four types of sources indicated by the type 
@@ -10,11 +9,16 @@ library(reshape2)
 #from 1999-2008 for Baltimore City? 
 #Which have seen increases in emissions from 1999-2008? 
 #Use the ggplot2 plotting system to make a plot answer this question.
+<<<<<<< HEAD
 
 #Select only rows which belong to Baltimore city (fips = 24510)
 Bal_NEI <- NEI[grep("24510",NEI$fips),]
 
 sum_nei3 <- melt(tapply(Bal_NEI$Emissions, list(Bal_NEI$year, Bal_NEI$type), sum))
+=======
+sum_nei3 <- melt(tapply(NEI$Emissions, list(NEI$year, NEI$type), sum))
+
+>>>>>>> origin/master
 colnames(sum_nei3)<-c("year","type", "Emissions")
 
 library(ggplot2)
