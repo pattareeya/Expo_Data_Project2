@@ -1,5 +1,4 @@
 #Explore Data Course Project No. 2
-setwd("C:/Coursera/Data Science/Explore_Data/")
 NEI <- readRDS("summarySCC_PM25.rds")
 SCC <- readRDS("Source_Classification_Code.rds")
 library(reshape2)
@@ -9,7 +8,7 @@ library(reshape2)
 
 #Search for "coal" in SCC$Short.name  
 coalSCC<-SCC[grep("+([a-zA-z]+) +[Cc]oal", SCC$Short.Name),]
-#select only SSC Column for mapping to NEI
+#select only SSC fips and Short.Name Columns for mapping to NEI
 coalSCC2 <- coalSCC[,c(1,3)]
 
 mergedData = merge(NEI,coalSCC2,by.x="SCC",by.y="SCC",all=FALSE)
